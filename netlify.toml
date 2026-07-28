@@ -1,5 +1,6 @@
 [build]
-  command = "dotnet publish -c Release -o release"
+  # This command forces the build image to download and use the .NET 9 SDK
+  command = "mise use -g dotnet@10 && dotnet publish -c Release -o release"
   publish = "release/wwwroot"
 
 [[redirects]]
