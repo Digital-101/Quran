@@ -1,0 +1,56 @@
+@page "/dhikr"
+@using global::Quran.Data
+
+<PageTitle>Dhikr</PageTitle>
+
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-6 fw-bold">Dhikr</h2>
+            <p class="lead mb-0">A beautiful collection of common remembrances of Allah in Arabic, Zulu, and English.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var dhikr in Dhikrs)
+        {
+            <div class="col-md-6 col-xl-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold" lang="ar">@dhikr.Arabic</h5>
+                        <p class="text-muted mb-2"><strong>Transliteration:</strong> @dhikr.Transliteration</p>
+                        <p class="text-muted mb-2"><strong>Zulu:</strong> @dhikr.Zulu</p>
+                        <p class="mb-0"><strong>English:</strong> @dhikr.English</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private sealed class DhikrEntry
+    {
+        public string Arabic { get; set; } = string.Empty;
+        public string Transliteration { get; set; } = string.Empty;
+        public string Zulu { get; set; } = string.Empty;
+        public string English { get; set; } = string.Empty;
+    }
+
+    private IReadOnlyList<DhikrEntry> Dhikrs { get; } = new List<DhikrEntry>
+    {
+        new() { Arabic = "سُبْحَانَ اللَّهِ", Transliteration = "Subhanallah", Zulu = "Udumo malube ku Allah", English = "Glory be to Allah" },
+        new() { Arabic = "الْحَمْدُ لِلَّهِ", Transliteration = "Alhamdulillah", Zulu = "Lonke Udumo balube kuNkulunkulu", English = "All praise is for Allah" },
+        new() { Arabic = "اللَّهُ أَكْبَرُ", Transliteration = "Allahu Akbar", Zulu = "UNkulunkulu mkhulu kunabo bonke", English = "Allah is the Greatest" },
+        new() { Arabic = "لَا إِلَٰهَ إِلَّا اللَّهُ", Transliteration = "La ilaha illallah", Zulu = "Akekho uNkulunkulu ngaphandle kukaNkulunkulu", English = "There is no God but Allah" },
+        new() { Arabic = "أَسْتَغْفِرُ اللَّهَ", Transliteration = "Astaghfirullah", Zulu = "Ngiyacela uxolo kuNkulunkulu", English = "I seek forgiveness from Allah" },
+        new() { Arabic = "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", Transliteration = "Subhanallahi wa bihamdihi", Zulu = "Mhlawumbe uNkulunkulu futhi ngembongolwelo", English = "Glory be to Allah and praise Him" },
+        new() { Arabic = "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", Transliteration = "La hawla wa la quwwata illa billah", Zulu = "Akukho amandla noma unomphela ngaphandle kukaNkulunkulu", English = "There is no power nor strength except with Allah" },
+        new() { Arabic = "حَسْبِيَ اللَّهُ وَنِعْمَ الْوَكِيل", Transliteration = "Hasbiyallahu wa ni'mal wakeel", Zulu = "UNkulunkulu ungikhethela konke", English = "Allah is sufficient for me and the best disposer of affairs" },
+        new() { Arabic = "اللَّهُمَّ اغْفِرْ لِي", Transliteration = "Allahumma ighfirli", Zulu = "Nkosi, ngicela ungixolele", English = "O Allah, forgive me" },
+        new() { Arabic = "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ", Transliteration = "Allahumma salli ala Muhammad", Zulu = "Nkosi, busisa uMuhammed", English = "O Allah, send peace upon Muhammad" },
+        new() { Arabic = "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً", Transliteration = "Rabbana atina fid-dunya hasanah", Zulu = "Nkosi, usinike okuhle ezweni", English = "Our Lord, give us good in this world" },
+        new() { Arabic = "رَبَّنَا لَا تُزِغْ قُلُوبَنَا", Transliteration = "Rabbana la tuzigh quloobana", Zulu = "Nkosi, ungasishiyi izinhliziyo zethu", English = "Our Lord, do not let our hearts go astray" }
+    };
+}
+

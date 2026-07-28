@@ -1,0 +1,147 @@
+@page "/names"
+
+<PageTitle>99 Names of Allah</PageTitle>
+
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-6 fw-bold">99 Names of Allah</h2>
+            <p class="lead mb-0">A reference list in Arabic, transliteration, Zulu, and English.</p>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Arabic</th>
+                    <th scope="col">Zulu</th>
+                    <th scope="col">English</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Names.Count; i++)
+                {
+                    var name = Names[i];
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td lang="ar">@name.Arabic <span class="text-muted small">(@name.Transliteration)</span></td>
+                        <td>@name.Zulu</td>
+                        <td>@name.English</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private sealed class NameEntry
+    {
+        public string Arabic { get; set; } = string.Empty;
+        public string Transliteration { get; set; } = string.Empty;
+        public string Zulu { get; set; } = string.Empty;
+        public string English { get; set; } = string.Empty;
+    }
+
+    private IReadOnlyList<NameEntry> Names { get; } = new List<NameEntry>
+    {
+        new() { Arabic = "الرَّحْمَٰن", Transliteration = "Ar-Rahman", Zulu = "Umusa omkhulu", English = "The Most Compassionate" },
+        new() { Arabic = "الرَّحِيم", Transliteration = "Ar-Raheem", Zulu = "Ongumusa", English = "The Most Merciful" },
+        new() { Arabic = "الْمَلِك", Transliteration = "Al-Malik", Zulu = "Inkosi", English = "The King" },
+        new() { Arabic = "الْقُدُّوس", Transliteration = "Al-Quddus", Zulu = "Ongcwele", English = "The Holy" },
+        new() { Arabic = "السَّلَام", Transliteration = "As-Salam", Zulu = "Opeace", English = "The Source of Peace" },
+        new() { Arabic = "الْمُؤْمِن", Transliteration = "Al-Mu'min", Zulu = "Onikeza ithemba", English = "The Giver of Security" },
+        new() { Arabic = "الْمُهَيْمِن", Transliteration = "Al-Muhaymin", Zulu = "Umgcini", English = "The Guardian" },
+        new() { Arabic = "الْعَزِيز", Transliteration = "Al-Aziz", Zulu = "Omandla onke", English = "The Almighty" },
+        new() { Arabic = "الْجَبَّار", Transliteration = "Al-Jabbar", Zulu = "Oqondisayo", English = "The Compeller" },
+        new() { Arabic = "الْمُتَكَبِّر", Transliteration = "Al-Mutakabbir", Zulu = "Ohloniphekile", English = "The Majestic" },
+        new() { Arabic = "الْخَالِق", Transliteration = "Al-Khaaliq", Zulu = "Um-dali", English = "The Creator" },
+        new() { Arabic = "الْبَارِئ", Transliteration = "Al-Baari'", Zulu = "Owenza kabusha", English = "The Evolver" },
+        new() { Arabic = "الْمُصَوِّر", Transliteration = "Al-Musawwir", Zulu = "Owakha ngezinhlelo", English = "The Fashioner" },
+        new() { Arabic = "الْغَفَّار", Transliteration = "Al-Ghaffaar", Zulu = "Othethelele", English = "The Forgiver" },
+        new() { Arabic = "الْقَهَّار", Transliteration = "Al-Qahhaar", Zulu = "Oqedile yonke into", English = "The Subduer" },
+        new() { Arabic = "الْوَهَّاب", Transliteration = "Al-Wahhaab", Zulu = "Onikela ngesihle", English = "The Bestower" },
+        new() { Arabic = "الرَّزَّاق", Transliteration = "Ar-Razzaq", Zulu = "Onikeza konke", English = "The Provider" },
+        new() { Arabic = "الْفَتَّاح", Transliteration = "Al-Fattaah", Zulu = "Ovula izindlela", English = "The Opener" },
+        new() { Arabic = "الْعَلِيم", Transliteration = "Al-Aleem", Zulu = "Onokwazi konke", English = "The All-Knowing" },
+        new() { Arabic = "الْقَابِض", Transliteration = "Al-Qaabid", Zulu = "Obambelela", English = "The Constrictor" },
+        new() { Arabic = "الْبَاسِط", Transliteration = "Al-Baasit", Zulu = "Onwabela ubukhulu", English = "The Expander" },
+        new() { Arabic = "الْخَافِض", Transliteration = "Al-Khaafid", Zulu = "Owehlisa", English = "The Abaser" },
+        new() { Arabic = "الرَّافِع", Transliteration = "Ar-Raafi'", Zulu = "Ophakamisa", English = "The Exalter" },
+        new() { Arabic = "الْمُعِزُّ", Transliteration = "Al-Mu'izz", Zulu = "Onika isithunzi", English = "The Honorer" },
+        new() { Arabic = "الْمُذِلُّ", Transliteration = "Al-Mudhill", Zulu = "Onokudela", English = "The Dishonorer" },
+        new() { Arabic = "السَّمِيع", Transliteration = "As-Samee'", Zulu = "Ozwayo", English = "The All-Hearing" },
+        new() { Arabic = "الْبَصِير", Transliteration = "Al-Baseer", Zulu = "Obonayo", English = "The All-Seeing" },
+        new() { Arabic = "الْحَكَم", Transliteration = "Al-Hakam", Zulu = "Umahluli", English = "The Judge" },
+        new() { Arabic = "الْعَدْل", Transliteration = "Al-Adl", Zulu = "Olungileyo", English = "The Utterly Just" },
+        new() { Arabic = "اللَّطِيف", Transliteration = "Al-Lateef", Zulu = "Othobile", English = "The Gentle" },
+        new() { Arabic = "الْخَبِير", Transliteration = "Al-Khabeer", Zulu = "Owazi konke", English = "The All-Aware" },
+        new() { Arabic = "الْحَلِيم", Transliteration = "Al-Haleem", Zulu = "Othembekile", English = "The Forbearing" },
+        new() { Arabic = "الْعَظِيم", Transliteration = "Al-Azeem", Zulu = "Omkhulu", English = "The Magnificent" },
+        new() { Arabic = "الْغَفُور", Transliteration = "Al-Ghafoor", Zulu = "Othethelela njalo", English = "The Oft-Forgiving" },
+        new() { Arabic = "الشَّكُور", Transliteration = "Ash-Shakoor", Zulu = "Onobungane", English = "The Appreciative" },
+        new() { Arabic = "الْعَلِي", Transliteration = "Al-Ali", Zulu = "Ophezulu", English = "The Most High" },
+        new() { Arabic = "الْكَبِير", Transliteration = "Al-Kabeer", Zulu = "Omkhulu kakhulu", English = "The Greatest" },
+        new() { Arabic = "الْحَفِيظ", Transliteration = "Al-Hafeez", Zulu = "Umgcini", English = "The Preserver" },
+        new() { Arabic = "المُقيِت", Transliteration = "Al-Muqeet", Zulu = "Onikeza ukudla", English = "The Nourisher" },
+        new() { Arabic = "الْحَسِيب", Transliteration = "Al-Hasib", Zulu = "Ohlawula", English = "The Reckoner" },
+        new() { Arabic = "الْجَلِيل", Transliteration = "Al-Jaleel", Zulu = "Ohloniphekile", English = "The Majestic" },
+        new() { Arabic = "الْكَرِيم", Transliteration = "Al-Kareem", Zulu = "Onobube", English = "The Generous" },
+        new() { Arabic = "الرَّقِيب", Transliteration = "Ar-Raqeeb", Zulu = "Umbheki", English = "The Watchful" },
+        new() { Arabic = "الْمُجِيب", Transliteration = "Al-Mujeeb", Zulu = "Ophendulayo", English = "The Responsive" },
+        new() { Arabic = "الْوَاسِع", Transliteration = "Al-Wasee'", Zulu = "Obanzi", English = "The All-Encompassing" },
+        new() { Arabic = "الْحَكِيم", Transliteration = "Al-Hakeem", Zulu = "Ohlakaniphile", English = "The Wise" },
+        new() { Arabic = "الْوَدُود", Transliteration = "Al-Wadud", Zulu = "Othandekayo", English = "The Loving" },
+        new() { Arabic = "الْمَجِيد", Transliteration = "Al-Majeed", Zulu = "Ohloniphekile", English = "The Glorious" },
+        new() { Arabic = "الْبَاعِث", Transliteration = "Al-Ba'ith", Zulu = "Ovusa", English = "The Resurrector" },
+        new() { Arabic = "الشَّهِيد", Transliteration = "Ash-Shaheed", Zulu = "Ufakazi", English = "The Witness" },
+        new() { Arabic = "الْحَقُّ", Transliteration = "Al-Haqq", Zulu = "Iqiniso", English = "The Truth" },
+        new() { Arabic = "الْوَكِيل", Transliteration = "Al-Wakeel", Zulu = "Othembekile", English = "The Trustee" },
+        new() { Arabic = "الْقَوِيُّ", Transliteration = "Al-Qawiyy", Zulu = "Oqinile", English = "The Strong" },
+        new() { Arabic = "الْمَتِين", Transliteration = "Al-Mateen", Zulu = "Oqinisile", English = "The Firm" },
+        new() { Arabic = "الْوَلِيُّ", Transliteration = "Al-Waliyy", Zulu = "Umvikeli", English = "The Protecting Friend" },
+        new() { Arabic = "الْحَمِيد", Transliteration = "Al-Hameed", Zulu = "Odunyiswayo", English = "The Praiseworthy" },
+        new() { Arabic = "الْمُحْصِي", Transliteration = "Al-Muhsee", Zulu = "Obala zonke izinto", English = "The Counter" },
+        new() { Arabic = "الْمُبْدِئ", Transliteration = "Al-Mubdi'", Zulu = "Osungula", English = "The Originator" },
+        new() { Arabic = "الْمُعِيد", Transliteration = "Al-Mu'eed", Zulu = "Obuyisa", English = "The Restorer" },
+        new() { Arabic = "الْمُحْيِي", Transliteration = "Al-Muhyee", Zulu = "Onikeza ukuphila", English = "The Giver of Life" },
+        new() { Arabic = "الْمُمِيت", Transliteration = "Al-Mumeet", Zulu = "Othatha ukuphila", English = "The Taker of Life" },
+        new() { Arabic = "الْحَيُّ", Transliteration = "Al-Hayy", Zulu = "Ophelelwe ukuphila", English = "The Ever-Living" },
+        new() { Arabic = "الْقَيُّوم", Transliteration = "Al-Qayyoom", Zulu = "Ophakeme", English = "The Sustainer" },
+        new() { Arabic = "الْوَاجِد", Transliteration = "Al-Waajid", Zulu = "Othola konke", English = "The Finder" },
+        new() { Arabic = "الْمَاحِي", Transliteration = "Al-Maahi", Zulu = "Osusa", English = "The Effacer" },
+        new() { Arabic = "الْمُحِيط", Transliteration = "Al-Muhit", Zulu = "Obanzi", English = "The All-Compassing" },
+        new() { Arabic = "الْهَادِي", Transliteration = "Al-Haadi", Zulu = "Umkhombandlela", English = "The Guide" },
+        new() { Arabic = "الْمُقْتَدِر", Transliteration = "Al-Muqtadir", Zulu = "Onamandla", English = "The Capable" },
+        new() { Arabic = "الْمُقَدِّم", Transliteration = "Al-Muqaddim", Zulu = "Oqale kuqala", English = "The Expediter" },
+        new() { Arabic = "الْمُؤَخِّر", Transliteration = "Al-Mu'akhkhir", Zulu = "Obambezele", English = "The Delayer" },
+        new() { Arabic = "الأَوَّل", Transliteration = "Al-Awwal", Zulu = "Oqala konke", English = "The First" },
+        new() { Arabic = "الْآخِر", Transliteration = "Al-Aakhir", Zulu = "Okokugcina", English = "The Last" },
+        new() { Arabic = "الظَّاهِر", Transliteration = "Az-Zaahir", Zulu = "Okubonakalayo", English = "The Manifest" },
+        new() { Arabic = "الْبَاطِن", Transliteration = "Al-Baatin", Zulu = "Okufihliwe", English = "The Hidden" },
+        new() { Arabic = "الْوَالِي", Transliteration = "Al-Waali", Zulu = "Umphathi", English = "The Governor" },
+        new() { Arabic = "الْمُتَعَالِي", Transliteration = "Al-Muta'ali", Zulu = "Ophakeme kakhulu", English = "The Most Exalted" },
+        new() { Arabic = "الْبَرُّ", Transliteration = "Al-Barr", Zulu = "Umusa omkhulu", English = "The Beneficent" },
+        new() { Arabic = "التَّوَّاب", Transliteration = "At-Tawwaab", Zulu = "Obuyisela", English = "The Ever-Returning" },
+        new() { Arabic = "الْمُنْتَقِم", Transliteration = "Al-Muntaqim", Zulu = "Ohlawulela", English = "The Avenger" },
+        new() { Arabic = "الْعَفُوُّ", Transliteration = "Al-Afuww", Zulu = "Osesigabeni somusa", English = "The Pardoner" },
+        new() { Arabic = "الرَّؤُوف", Transliteration = "Ar-Ra'uf", Zulu = "Othandekayo", English = "The Kind" },
+        new() { Arabic = "مَالِكُ الْمُلْك", Transliteration = "Maalik-ul-Mulk", Zulu = "Umnini wobukhosi", English = "Owner of Dominion" },
+        new() { Arabic = "ذُو الْجَلَالِ وَالْإِكْرَام", Transliteration = "Dhu al-Jalaali wal-Ikraam", Zulu = "Umnini inkazimulo nodumo", English = "Lord of Glory and Honor" },
+        new() { Arabic = "الْمُقْسِط", Transliteration = "Al-Muqsit", Zulu = "Olungileyo", English = "The Just" },
+        new() { Arabic = "الْجَامِع", Transliteration = "Al-Jaami'", Zulu = "Obutha ndawonye", English = "The Gatherer" },
+        new() { Arabic = "الْغَنِيُّ", Transliteration = "Al-Ghaniyy", Zulu = "Ongadingi", English = "The Self-Sufficient" },
+        new() { Arabic = "الْمُغْنِي", Transliteration = "Al-Mughni", Zulu = "Onika ukuchichima", English = "The Enricher" },
+        new() { Arabic = "الْمَانِع", Transliteration = "Al-Maani'", Zulu = "Ovimba", English = "The Preventer" },
+        new() { Arabic = "الضَّارُّ", Transliteration = "Ad-Daarr", Zulu = "Ongalimaza", English = "The Distresser" },
+        new() { Arabic = "النَّافِع", Transliteration = "An-Naafi'", Zulu = "Onikeza inzuzo", English = "The Benefactor" },
+        new() { Arabic = "النُّور", Transliteration = "An-Noor", Zulu = "Ukukhanya", English = "The Light" },
+        new() { Arabic = "الْبَدِيع", Transliteration = "Al-Badee'", Zulu = "Owenguqubeko", English = "The Originator" },
+        new() { Arabic = "الْبَاقِي", Transliteration = "Al-Baaqi", Zulu = "Ohlala njalo", English = "The Everlasting" },
+        new() { Arabic = "الْوَارِث", Transliteration = "Al-Waarith", Zulu = "Umnini okhokho", English = "The Inheritor" },
+        new() { Arabic = "الرَّشِيد", Transliteration = "Ar-Rasheed", Zulu = "Oqondisayo", English = "The Guide to the Right Path" },
+        new() { Arabic = "الصَّبُور", Transliteration = "As-Saboor", Zulu = "Ozinzile", English = "The Patient" }
+    };
+}
